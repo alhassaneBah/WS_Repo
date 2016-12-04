@@ -1,0 +1,11 @@
+/home/bah/Bureau/WSProjectRamirezBah/WS-Project/src/main/java/com/ws/WsProjectApplication.java
+/home/bah/Bureau/WSProjectRamirezBah/WS-Project/src/main/java/com/ws/model/Comment.java
+/home/bah/Bureau/WSProjectRamirezBah/WS-Project/src/main/java/com/ws/model/Group.java
+/home/bah/Bureau/WSProjectRamirezBah/WS-Project/src/main/java/com/ws/dao/UserRepository.java
+/home/bah/Bureau/WSProjectRamirezBah/WS-Project/src/main/java/com/ws/dao/GroupeRepository.java
+/home/bah/Bureau/WSProjectRamirezBah/WS-Project/src/main/java/com/ws/controller/UsersController.java
+/home/bah/Bureau/WSProjectRamirezBah/WS-Project/src/main/java/com/ws/service/UsersService.java
+/home/bah/Bureau/WSProjectRamirezBah/WS-Project/src/main/java/com/ws/service/GroupeService.java
+/home/bah/Bureau/WSProjectRamirezBah/WS-Project/src/main/java/com/ws/controller/GroupeController.java
+/home/bah/Bureau/WSProjectRamirezBah/WS-Project/src/main/java/com/ws/controller/TwitterController.java
+/home/bah/Bureau/WSProjectRamirezBah/WS-Project/src/main/java/com/ws/model/User.java

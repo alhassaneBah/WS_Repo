@@ -1,0 +1,392 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    
+
+    <title>WS Project</title>
+
+    <!-- Bootstrap core CSS -->
+    
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+
+   
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+          
+          <a class="navbar-brand" href="/group/home/">WS Project</a>
+          
+          
+           <ul class="nav navbar-nav">   
+           
+		           
+		           <li class="dropdown">
+				         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage group
+				        <span class="caret"></span></a>
+				        <ul class="dropdown-menu">
+				          <li><a href="/group/new">Add group</a></li>
+				          
+				        </ul>
+		            </li>
+           
+           
+           
+           
+           
+           
+	 		
+	 	
+	 		</ul>
+          
+          
+          
+          
+       
+          
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/user/home/">Accueil</a></li>
+            <li><a href="#">Parametres</a></li>
+            <li><a href="#">Profil</a></li>
+            <li><a href="#">Aide</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Recherche..." />
+          </form>
+        </div>
+      </div>
+    </nav>
+
+  
+        
+    
+    
+    
+      
+    
+     
+      
+      <div class="container " id="homeDiv">
+	     <div class="jumbotron text-center">
+	          <h1>Welcome to Group Home</h1>
+	
+	     </div>
+	
+	
+	</div>
+      
+      
+      
+       
+        
+        
+        
+    <div class="container text-center  " id="groupDiv">
+        	
+        	
+        	
+        	
+        	
+        	
+           <table class="table table-striped" id="grouplist">
+        <thead>
+        <tr>
+           
+            <th>Id</th>
+   		    <th>name</th>
+   		    <th>Description</th>
+   		    <th>Admin</th>
+   		    <th>nbMembers</th>
+   		    <th>NbComment</th>
+   		    
+   		    
+   		           		
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="group : ${groups}">
+             <td class="message" data-th-text="${group.id}"></td>
+            <td class="message" data-th-text="${group.name}"></td>
+            <td class="message" data-th-text="${group.description}"></td>
+            <td class="message" data-th-text="${group.getEmailAdmin()}"></td>
+           <td class="message" data-th-text="${group.getSize()}"></td>
+           <td class="message" data-th-text="${group.getNbComment()}"></td>
+           
+          
+           
+           
+            <td>
+                <a th:href="@{'/group/join/{id}'(id=${group.id})}" class="delete" th:attr="name=${group}">
+                        <span class="fa-stack">
+                            <i class="glyphicon glyphicon-arrow-left"></i>
+                        </span>
+                </a>
+            </td>
+            
+        </tr>
+        
+        </tbody>
+        
+              
+    </table>
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    
+    <div class="panel-group" id="accordion">
+    
+    
+    
+    
+    
+    
+    
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">My Own Group</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      
+             	
+           <table class="table table-striped" id="grouplist">
+        <thead>
+        <tr>
+           
+            <th>Id</th>
+   		    <th>name</th>
+   		    <th>Description</th>
+   		    <th>Admin</th>
+   		     <th>Comment</th>
+   		    
+   		           		
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="group : ${myOwnGroup}">
+             <td class="message" data-th-text="${group.id}"></td>
+            <td class="message" data-th-text="${group.name}"></td>
+            <td class="message" data-th-text="${group.description}"></td>
+            <td class="message" data-th-text="${group.getEmailAdmin()}"></td>
+             <td class="message" data-th-text="${group.getComments()}"></td>
+           
+            
+         
+
+            <td>
+                <a th:href="@{'/group/edit/{id}'(id=${group.id})}" class="edit" th:attr="name=${group}">
+                    <span class="fa-stack">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </span>
+
+                </a>
+            </td>
+            
+             <td>
+                <a th:href="@{'/group/delete/{id}'(id=${group.id})}" class="delete" th:attr="name=${group}">
+                        <span class="fa-stack">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </span>
+                </a>
+            </td>
+            
+            
+            
+            
+           
+            
+             <td>
+                <a th:href="@{'/group/addComment/{id}'(id=${group.id})}" class="delete" th:attr="name=${group}">
+                        <span class="fa-stack">
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </span>
+                </a>
+            </td>
+            
+            
+            
+            
+            <td>
+                <a th:href="@{'/group/delete/{id}'(id=${group.id})}" class="delete" th:attr="name=${group}">
+                        <span class="fa-stack">
+                            <i class="glyphicon glyphicon-font"></i>
+                        </span>
+                </a>
+            </td>
+            
+            
+            
+            
+            
+            
+            
+        </tr>
+        
+        
+        </tbody>
+        
+        
+        
+        
+    </table>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">My Join Group</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+             	
+           <table class="table table-striped" id="grouplist">
+        <thead>
+        <tr>
+           
+            <th>Id</th>
+   		    <th>name</th>
+   		    <th>Description</th>
+   		    <th>Admin</th>
+   		    
+   		           		
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="group : ${myJoinGroup}">
+             <td class="message" data-th-text="${group.id}"></td>
+            <td class="message" data-th-text="${group.name}"></td>
+            <td class="message" data-th-text="${group.description}"></td>
+            <td class="message" data-th-text="${group.getEmailAdmin()}"></td>
+           
+            
+         
+
+          
+            
+            
+           
+            
+            <td>
+                <a th:href="@{'/group/leave/{id}'(id=${group.id})}" class="leave" th:attr="name=${group}">
+                        <span class="fa-stack">
+                            <i class="glyphicon glyphicon-arrow-right"></i>
+                        </span>
+                </a>
+            </td>
+            
+             <td>
+                <a th:href="@{'/group/add/{id}'(id=${group.id})}" class="delete" th:attr="name=${group}">
+                        <span class="fa-stack">
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </span>
+                </a>
+            </td>
+            
+            
+            
+            
+            
+            
+            
+            
+        </tr>
+   
+        
+        </tbody>
+        
+    </table>
+    </div>
+  </div>
+
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   </div>
+        
+     
+        
+        
+        
+        
+      
+
+
+    <script src="/js/jquery-3.1.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        

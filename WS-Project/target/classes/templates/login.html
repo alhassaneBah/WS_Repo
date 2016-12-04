@@ -1,0 +1,110 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    
+
+    <title>WS Project</title>
+
+    <!-- Bootstrap core CSS -->
+    
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-social.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+
+   
+  </head>
+
+
+<body>
+
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+          
+          <a class="navbar-brand" href="/user/home/">WS Project</a>
+          
+          
+           <ul class="nav navbar-nav">   
+           
+		           
+		           <li class="dropdown">
+				         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Group
+				        <span class="caret"></span></a>
+				        <ul class="dropdown-menu">
+				        <li><a href="/group/new">Create Group</a></li>
+				          <li><a href="/user/new">Add User</a></li>
+				          
+				        </ul>
+		            </li>
+           
+           
+           
+           
+           
+           
+	 		
+	 	
+	 		</ul>
+          
+          
+          
+          
+       
+          
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/user/home/">Accueil</a></li>
+            <li><a href="#">Parametres</a></li>
+            <li><a href="#">Profil</a></li>
+            <li><a href="#">Aide</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Recherche..." />
+          </form>
+        </div>
+      </div>
+    </nav>
+
+  
+        
+
+
+
+
+
+
+	  <div class="container">
+	            <h2>Login page</h2>
+	
+	            <p>Sign in with:</p>
+	
+	            <table style="border-collapse: separate; border-spacing: 2px">
+	                <tr>
+	                    <td><a th:href="@{/connect/facebook}" class="ml btn btn-block btn-social btn-sm btn-facebook"><i class="fa fa-facebook"></i>Facebook</a></td>
+	                	<td><a th:href="@{/connect/twitter}" class="ml btn btn-block btn-social btn-sm btn-twitter"><i class="fa fa-twitter"></i>Twitter</a></td>
+	                
+	                
+	                </tr>
+	                
+	            </table>
+	
+	           
+	
+	        </div><!-- /.container -->
+	    </body>
+</html>

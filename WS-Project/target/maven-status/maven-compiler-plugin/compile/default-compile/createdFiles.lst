@@ -1,0 +1,8 @@
+com/ws/controller/GroupeController.class
+com/ws/model/Comment.class
+com/ws/controller/UsersController.class
+com/ws/dao/UserRepository.class
+com/ws/WsProjectApplication.class
+com/ws/dao/GroupeRepository.class
+com/ws/service/UsersService.class
+com/ws/service/GroupeService.class
