@@ -1,8 +1,15 @@
-com/ws/controller/GroupeController.class
+com/ws/social/service/AccountConnectionSignUpService.class
+com/ws/social/service/SocialControllerUtil.class
+com/ws/model/User.class
 com/ws/model/Comment.class
 com/ws/controller/UsersController.class
 com/ws/dao/UserRepository.class
+com/ws/social/service/SimpleSocialUsersDetailService.class
+com/ws/controller/LoginController.class
 com/ws/WsProjectApplication.class
 com/ws/dao/GroupeRepository.class
+com/ws/model/Group.class
 com/ws/service/UsersService.class
+com/ws/controller/HelloTwitterController.class
 com/ws/service/GroupeService.class
+com/ws/social/service/SecurityConfiguration.class

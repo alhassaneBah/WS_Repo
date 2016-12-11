@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -18,14 +19,14 @@ public class Group implements Serializable  {
 	private int id;
 	private String name;
 	private String description;
-	@DBRef(db="users")
+	@JsonIgnore
+	@DBRef(db="users" , lazy=true)
 	private User admin;
 	
-	
-	//private List<Users> members=new ArrayList<Users>();
-	//private List<Comment> comments=new ArrayList<Comment>();
-	
+	@JsonIgnore
+	@DBRef(db="users" , lazy=true)
 	private List<User> members=new ArrayList<>();
+	@JsonIgnore
 	private List<Comment> comments=new ArrayList<>();
 	
 	
@@ -119,7 +120,8 @@ public class Group implements Serializable  {
 		return comments;
 	}
 
-
+	
+	
 
 
 	public String getEmailAdmin(){
@@ -172,9 +174,13 @@ public class Group implements Serializable  {
 
 
 	public void addComment(Comment com) {
+		
 		comments.add(com);
 		
+		
 	}
+	
+
 	
 	
 

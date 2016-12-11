@@ -29,18 +29,28 @@ public class UsersService {
 	}
 	
 	public void save(User user){
+		
 		userRepository.save(user);
 	}
 	
-	public void delete(int id){
+	public void delete(String id){
 		userRepository.delete(id);
 	}
 	
 	
-	public  User findOne(int id){
-	  return userRepository.findOne(id);
+	public  User findOne(String id){
+	 
+	   
+		
+	   return userRepository.findOne(id);
+	  
+		
+		
 	         
 	}
+	
+	
+	
 
 	
 	
@@ -59,6 +69,12 @@ public class UsersService {
 		
 	}
 
+	
+	public User findByEmail(String email) {
+		// TODO Auto-generated method stub
+		return userRepository.findByEmail(email);
+	}
+	
 	public  User getCurrent() {
 		return current;
 	}
@@ -66,6 +82,10 @@ public class UsersService {
 	public  void setCurrent(User current) {
 		UsersService.current = current;
 	}
+
+	
+
+	
 
 	
 	

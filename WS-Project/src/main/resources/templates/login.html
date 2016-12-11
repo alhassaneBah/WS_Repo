@@ -24,87 +24,92 @@
 
 <body>
 
- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          
-          
-          <a class="navbar-brand" href="/user/home/">WS Project</a>
-          
-          
-           <ul class="nav navbar-nav">   
-           
-		           
-		           <li class="dropdown">
-				         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Group
-				        <span class="caret"></span></a>
-				        <ul class="dropdown-menu">
-				        <li><a href="/group/new">Create Group</a></li>
-				          <li><a href="/user/new">Add User</a></li>
-				          
-				        </ul>
-		            </li>
-           
-           
-           
-           
-           
-           
-	 		
-	 	
-	 		</ul>
-          
-          
-          
-          
-       
-          
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/user/home/">Accueil</a></li>
-            <li><a href="#">Parametres</a></li>
-            <li><a href="#">Profil</a></li>
-            <li><a href="#">Aide</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Recherche..." />
-          </form>
-        </div>
-      </div>
-    </nav>
+	     
+	        
+	        
+	        
+	        
+	        
+	        
+   
+  <div class="container">    
+  <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+      <div class="panel panel-info" >
+              <div class="panel-heading">
+                  <div class="panel-title">Sign In</div>
+                  <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+              </div>     
 
-  
-        
+              <div style="padding-top:30px" class="panel-body" >
 
+                  <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                      
+                  <form id="loginform" class="form-horizontal" th:action="@{/login/signIn}" th:object="${user}" method="post">
+                              
+                      <div style="margin-bottom: 25px" class="input-group">
+                                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                   
+                                   	        
+                                   
+                           
+                          <input id="login-username" type="text" class="form-control" name="email" th:field="*{email}" placeholder=" email"></input>                                        
+                         </div>
+                     
+                          <div style="margin-bottom: 25px" class="input-group">
+                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                             <input id="login-password" type="password" class="form-control" name="passwd" th:field="*{passwd}" placeholder="password"></input>
+                         </div>
+                         
 
+                          
+                   <div class="input-group">
+                       <div class="checkbox">
+                         <label>
+                           <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me</input>
+                         </label>
+                       </div>
+                     </div>
+                     
+                         
+                     
+                              
+               
 
+               <div style="margin-top:10px" class="form-group">
+                   <!-- Button -->
 
+                   <div class="col-sm-12 controls">
+                   
+                   <input type="submit" class="btn btn-primary" value="Submit" /> 
+                   
+                   <a id="btn-fblogin" href="/connect/twitter" class="btn btn-primary">Twitter</a>
 
+                   </div>
+               </div>
+                  
+              </form>
+              
+              
+                      <div class="form-group">
+                              <div class="col-md-12 control">
+                                  <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                        Don't have an account! 
+                                    <a href="/login/signUp">
+                                        Sign Up Here
+                                    </a>
+                                    </div>
+                                </div>
+                            </div> 
+                        
+                      
+                    </div>                     
+         </div>  
+    </div>
 
-	  <div class="container">
-	            <h2>Login page</h2>
-	
-	            <p>Sign in with:</p>
-	
-	            <table style="border-collapse: separate; border-spacing: 2px">
-	                <tr>
-	                    <td><a th:href="@{/connect/facebook}" class="ml btn btn-block btn-social btn-sm btn-facebook"><i class="fa fa-facebook"></i>Facebook</a></td>
-	                	<td><a th:href="@{/connect/twitter}" class="ml btn btn-block btn-social btn-sm btn-twitter"><i class="fa fa-twitter"></i>Twitter</a></td>
-	                
-	                
-	                </tr>
-	                
-	            </table>
-	
-	           
-	
-	        </div><!-- /.container -->
-	    </body>
+</div>
+     
+	        
+
+	      
+</body>
 </html>

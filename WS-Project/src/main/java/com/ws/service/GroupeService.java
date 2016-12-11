@@ -21,7 +21,7 @@ public class GroupeService {
 	
 	
 	
-	public List<Group> findAll(){
+	public  List<Group> findAll(){
 		
 		return groupeRepository.findAll();
 		
@@ -47,6 +47,23 @@ public class GroupeService {
 	public List<Group> findByAdmin(User admin){
 		return groupeRepository.findByAdmin(admin);
 	}
+
+
+
+	public void deleteAll() {
+		groupeRepository.deleteAll();
+		
+	}
+
+
+
+	public void delete(List<Group> groups) {
+		groupeRepository.delete(groups);		
+	}
+
+
+
+	
 
 
 

@@ -32,10 +32,13 @@ public class WsProjectApplication implements CommandLineRunner {
 		
 	
 		
-	
-		 User user1=new User(1,"alhassane@gmail.com", "Bah", "alhassane", "biography");
-		 User user2=new User(2,"diana@gmail.com", "ramirez", "diana", "biography");
-		 User user3=new User(3,"pablo@gmail.com", "Pablo", "Escobar", "biography");
+	   
+		
+		
+		 User user1=new User("alhassaneba88@gmail", "Bah", "alhassane", "Etudiant lyon1");
+		 User user2=new User("diana@gmail", "ramirez", "diana", "Etudiant saint etienne");
+		 User user3=new User("pablo@gmail", "Pablo", "Escobar", "biography");
+		 User user4=new User("john@gmail", "John", "Gotti", "Etudiant paris");
 
 		 
 		 Group group1=new Group(1,"groupe1", "description",user1);
@@ -50,7 +53,10 @@ public class WsProjectApplication implements CommandLineRunner {
 		 
 		
 		 user1.addMember(group1,user3);
-		 user2.addMember(group4,user3);
+		 user1.addMember(group2,user4);
+		 
+		 user2.addMember(group3,user3);
+		 user2.addMember(group4,user4);
 		 user1.joinGroup(group4);
 		 user2.joinGroup(group1);
 		
@@ -59,11 +65,13 @@ public class WsProjectApplication implements CommandLineRunner {
 		 
 		 
 	
-		 
+		 this.userService.deleteAll();
+		 this.groupeService.deleteAll();
 		 
 		this.userService.save(user1);
 		this.userService.save(user2);
 		this.userService.save(user3);
+		this.userService.save(user4);
 		this.groupeService.save(group1);
 		this.groupeService.save(group2);
 		this.groupeService.save(group3);

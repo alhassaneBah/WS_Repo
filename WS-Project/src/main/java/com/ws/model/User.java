@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,15 +18,21 @@ import com.mongodb.BasicDBObject;
 @Document(collection = "users")
 public class User implements Serializable {
 	
+	
 	@Id
-	private int id;
 	private String email;
+	@JsonIgnore
+	private String passwd;
 	private String firstName;
 	private String lastName;
 	private String biography;
-	@DBRef(db="groups")
+	
+	
+	@JsonIgnore
+	@DBRef(db="groups",lazy=true)
 	private List<Group> myownGroup=new ArrayList<>();
-	@DBRef(db="groups")
+	@JsonIgnore
+	@DBRef(db="groups",lazy=true)
 	private List<Group> myJoingroup=new ArrayList<>();
 	
 	
@@ -40,13 +47,10 @@ public class User implements Serializable {
 		
 	}
 	
-	public User(int id) {
-		this.id=id;
-		
-	}
-	public User(int id,String email, String firstName, String lastName, String biography) {
+	
+	public User(String email, String firstName, String lastName, String biography) {
 		super();
-		this.id=id;
+		
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -56,12 +60,24 @@ public class User implements Serializable {
 	
 	
 	
-	public int getId() {
-		return id;
+	
+	
+	
+
+	public User(String email) {
+		this.email=email;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+
+	public String getPasswd() {
+		return passwd;
 	}
+
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
+
+	
 	public String getEmail() {
 		return email;
 	}
@@ -134,14 +150,16 @@ public class User implements Serializable {
     	myownGroup.add(groupe);
 		
 	}
-    public void joinGroup(Group group) {
+    public Boolean  joinGroup(Group group) {
 		if(!myownGroup.contains(group) && !myJoingroup.contains(group)){
 			
 			
 			myJoingroup.add(group);
+			return true;
 			
 		
 		}
+		return false;
     	
 	}
 	

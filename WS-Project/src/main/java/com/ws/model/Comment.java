@@ -3,6 +3,7 @@ package com.ws.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,7 +12,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Comment implements Serializable {
 	@Id
 	private Integer id;
-	@DBRef(db="users")
+	@JsonIgnore
+	@DBRef(db="users" , lazy=true)
   private User user;
   private String comment;
   private Date date;
@@ -51,6 +53,12 @@ public String getComment() {
 }
 public void setComment(String comment) {
 	this.comment = comment;
+}
+
+@Override
+public String toString() {
+	return String.format("Comment[%s, '%s', '%s']", user.getEmail(),date,comment);
+			
 }
   
 }

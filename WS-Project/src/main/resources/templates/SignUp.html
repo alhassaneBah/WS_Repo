@@ -1,0 +1,115 @@
+
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    
+
+    <title>WS Project</title>
+
+    <!-- Bootstrap core CSS -->
+    
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-social.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+
+   
+  </head>
+
+
+<body>
+
+
+
+
+
+<div class="panel-body" >
+        
+        
+        <form id="signupform" class="form-horizontal" th:action="@{/login/signUp}" th:object="${user}" method="post">
+        
+            
+            <div id="signupalert" style="display:none" class="alert alert-danger">
+                <p>Error:</p>
+                <span></span>
+            </div>
+                
+            
+              
+            <div class="form-group">
+                <label for="email" class="col-md-3 control-label">Email</label>
+                <div class="col-md-5">
+                    
+                    
+                    <input type="text" class="form-control" name="email" th:field="*{email}" placeholder="Email Address"></input>
+                </div>
+            </div>
+                
+            <div class="form-group">
+                <label for="firstname" class="col-md-3 control-label">First Name</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" name="firstName" th:field="*{firstName}" placeholder="First Name"></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" name="lastName"  th:field="*{lastName}" placeholder="Last Name"></input>
+                </div>
+            </div>
+            
+            
+            <div class="form-group">
+                <label for="lastname" class="col-md-3 control-label">Biography</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" name="lastName"  th:field="*{biography}" placeholder="Last Name"></input>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="form-group">
+                <label for="password" class="col-md-3 control-label">Password</label>
+                <div class="col-md-5">
+                    <input type="password" class="form-control" name="passwd" th:field="*{passwd}" placeholder="Password"></input>
+                </div>
+            </div>
+                
+            
+            
+            <div  class="pull-right">    
+            <p><input type="submit" class="btn btn-primary" value="Submit" /> <input type="reset"  class="btn btn-primary" value="Reset" /></p>
+    
+            </div>
+             
+             
+            
+          
+
+            
+            
+          
+            
+		                                
+		                                
+	 </form>
+                        
+   </div>
+   
+</body>
+</html>
+   
+   
+   
